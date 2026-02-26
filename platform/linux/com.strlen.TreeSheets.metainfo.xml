@@ -47,4 +47,11 @@
       <image>https://strlen.com/treesheets/docs/images/screenshots/screenshot_tutorial.png</image>
     </screenshot>
   </screenshots>
+  <releases>
+    <release version="1.0.0" date="2026-02-26">
+      <description>
+        <p>Please check the GitHub page for the updates.</p>
+      </description>
+    </release>
+  </releases>
 </component>
