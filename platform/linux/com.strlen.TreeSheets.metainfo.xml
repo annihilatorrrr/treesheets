@@ -10,6 +10,7 @@
   <url type="donation">https://github.com/sponsors/aardappel</url>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>Zlib</project_license>
+  <content_rating type="oars-1.0" />
   <developer id="com.strlen">
     <name>Wouter van Oortmerssen</name>
   </developer>
