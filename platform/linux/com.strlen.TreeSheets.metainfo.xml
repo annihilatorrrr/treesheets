@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2026  Wouter van Oortmerssen and Tobias Predel -->
 <component type="desktop">
-  <id>com.strlen.TreeSheets.desktop</id>
+  <id>com.strlen.TreeSheets</id>
+  <name>TreeSheets</name>
+  <summary>Free Form Data Organizer</summary>
+  <url type="homepage">https://strlen.com/treesheets</url>
+  <url type="bugtracker">https://github.com/aardappel/treesheets/issues</url>
+  <url type="contribute">https://github.com/aardappel/treesheets</url>
+  <url type="donation">https://github.com/sponsors/aardappel</url>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>Zlib</project_license>
-  <name>TreeSheets</name>
-  <summary>Free form data organizer</summary>
+  <developer id="com.strlen">
+    <name>Wouter van Oortmerssen</name>
+  </developer>
   <description>
     <p>
       A "hierarchical spreadsheet" that is a great replacement for
@@ -27,6 +34,7 @@
         <li>It's like a text editor, but with structure.</li>
     </ul>
   </description>
+  <launchable type="desktop-id">com.strlen.TreeSheets.desktop</launchable>
   <screenshots>
     <screenshot type="default">
       <image>https://strlen.com/treesheets/docs/images/screenshots/screenshot_todo.png</image>
@@ -38,5 +46,4 @@
       <image>https://strlen.com/treesheets/docs/images/screenshots/screenshot_tutorial.png</image>
     </screenshot>
   </screenshots>
-  <url type="homepage">https://strlen.com/treesheets</url>
 </component>
