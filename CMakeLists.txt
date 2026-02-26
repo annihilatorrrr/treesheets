@@ -2,9 +2,14 @@ cmake_minimum_required(VERSION 3.25)
 
 ### Project
 
-if(NOT TREESHEETS_VERSION)
+set(TREESHEETS_VERSION "" CACHE STRING "Version string (e.g., 1.2.3). Leave empty for auto-timestamp.")
+
+if("${TREESHEETS_VERSION}" STREQUAL "")
     string(TIMESTAMP timestamp "%y%m%d.%H%M" UTC)
     set(TREESHEETS_VERSION "${timestamp}")
+    message(STATUS "Auto-generated version: ${TREESHEETS_VERSION}")
+else()
+    message(STATUS "User-defined version: ${TREESHEETS_VERSION}")
 endif()
 
 project(TreeSheets
@@ -104,7 +109,7 @@ endif(ENABLE_LOBSTER)
 add_executable(TreeSheets
     src/main.cpp)
 
-target_compile_definitions(TreeSheets PRIVATE "PACKAGE_VERSION=\"${CMAKE_PROJECT_VERSION}\"")
+target_compile_definitions(TreeSheets PRIVATE "PACKAGE_VERSION=\"${TREESHEETS_VERSION}\"")
 if(ENABLE_LOBSTER)
     target_compile_definitions(TreeSheets PRIVATE "ENABLE_LOBSTER=1")
 endif(ENABLE_LOBSTER)
@@ -159,10 +164,18 @@ if((LINUX OR BSD) AND NOT TREESHEETS_RELOCATABLE_INSTALLATION)
         "TREESHEETS_DATADIR=\"${TREESHEETS_FULL_PKGDATADIR}\""
     )
 
+    # Adapt the AppStream metainfo to release version and date
+    string(TIMESTAMP TREESHEETS_RELEASE_DATE "%Y-%m-%d")
+    configure_file(
+        "${CMAKE_CURRENT_SOURCE_DIR}/platform/linux/com.strlen.TreeSheets.metainfo.xml.in"
+        "${CMAKE_CURRENT_BINARY_DIR}/com.strlen.TreeSheets.metainfo.xml"
+        @ONLY
+    )
+
     install(FILES platform/linux/com.strlen.TreeSheets.svg DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/scalable/apps)
     install(FILES platform/linux/com.strlen.TreeSheets.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
     install(FILES platform/linux/com.strlen.TreeSheets.xml DESTINATION ${CMAKE_INSTALL_DATADIR}/mime/packages)
-    install(FILES platform/linux/com.strlen.TreeSheets.metainfo.xml DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo)
+    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/com.strlen.TreeSheets.metainfo.xml" DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo)
 elseif(APPLE)
     # Paths must be relative to use with CPack
     set(TREESHEETS_BINDIR .)

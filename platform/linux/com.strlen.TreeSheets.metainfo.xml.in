@@ -48,7 +48,7 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release version="1.0.0" date="2026-02-26">
+    <release version="@TREESHEETS_VERSION@" date="@TREESHEETS_RELEASE_DATE@">
       <description>
         <p>Please check the GitHub page for the updates.</p>
       </description>
