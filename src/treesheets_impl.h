@@ -218,6 +218,11 @@ struct TreeSheetsScriptImpl : public ScriptInterface {
     bool IsTag() { return current->IsTag(document); }
 
     bool HasImage() { return current->text.image; }
+    bool SetImage(std::string_view fn) {
+        AddUndoIfNecessary();
+        return document->LoadImageIntoCell(wxString::FromUTF8(fn.data(), fn.size()), current,
+                                           sys->frame->FromDIP(1.0));
+    }
 };
 
 static int64_t TreeSheetsLoader(string_view_nt absfilename, std::string *dest, int64_t start,

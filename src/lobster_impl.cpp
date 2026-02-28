@@ -230,6 +230,9 @@ nfr("remove_image", "", "", "", "remove image in the current cell",
         si->RemoveImage();
         return NilVal();
     });
+
+nfr("set_image", "filename", "S", "B", "set image for the current cell",
+    [](StackPtr &, VM &, Value filename) { return Value(si->SetImage(filename.sval()->data())); });
 }
 
 NativeRegistry natreg;  // FIXME: global.
