@@ -211,6 +211,9 @@ nfr("is_tag", "", "", "B", "whether the current cell text is a tag",
         return Value(si->IsTag());
     });
 
+nfr("has_image", "", "", "B", "whether the current cell has an image",
+    [](StackPtr &, VM &) { return Value(si->HasImage()); });
+
 nfr("get_column_width", "", "", "I", "get the column width of the current cell",
     [](StackPtr &, VM &) {
         return Value(si->GetColWidth());

@@ -115,6 +115,9 @@
 <tr class="a" valign=top><td class="a"><tt><b>ts.is_tag</b>() -> <font color="#666666">int</font></tt></td><td class="a">whether the current cell text is a tag</td>
 
 </tr>
+<tr class="a" valign=top><td class="a"><tt><b>ts.has_image</b>() -> <font color="#666666">int</font></tt></td><td class="a">whether the current cell has an image</td>
+
+</tr>
 <tr class="a" valign=top><td class="a"><tt><b>ts.get_column_width</b>() -> <font color="#666666">int</font></tt></td><td class="a">get the column width of the current cell</td>
 
 </tr>
@@ -238,6 +241,12 @@
 
 </tr>
 <tr class="a" valign=top><td class="a"><tt><b>find_string_reverse</b>(s<font color="#666666">: string</font>, substr<font color="#666666">: string</font>, offset<font color="#666666">: int</font> = 0) -> <font color="#666666">int</font></tt></td><td class="a">finds the index at which substr first appears when searching from the end, or -1 if none. optionally start at a position other than the end of the string</td>
+
+</tr>
+<tr class="a" valign=top><td class="a"><tt><b>split_string</b>(s<font color="#666666">: string</font>, delimiter<font color="#666666">: string</font>) -> <font color="#666666">string</font>, <font color="#666666">string</font></tt></td><td class="a">returns two strings, the parts of the input before and after the first delimiter. if not found, returns the input and an empty string</td>
+
+</tr>
+<tr class="a" valign=top><td class="a"><tt><b>split_string_reverse</b>(s<font color="#666666">: string</font>, delimiter<font color="#666666">: string</font>) -> <font color="#666666">string</font>, <font color="#666666">string</font></tt></td><td class="a">returns two strings, the parts of the input before and after the last delimiter. if not found, returns an empty string and the input</td>
 
 </tr>
 <tr class="a" valign=top><td class="a"><tt><b>replace_string</b>(s<font color="#666666">: string</font>, a<font color="#666666">: string</font>, b<font color="#666666">: string</font>, count<font color="#666666">: int</font> = 0) -> <font color="#666666">string</font></tt></td><td class="a">returns a copy of s where all occurrences of a have been replaced with b. if a is empty, no replacements are made. if count is specified, makes at most that many replacements</td>
