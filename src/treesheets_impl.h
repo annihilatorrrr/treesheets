@@ -189,6 +189,11 @@ struct TreeSheetsScriptImpl : public ScriptInterface {
 
     int GetStyle() { return current->text.stylebits; }
 
+    void RemoveImage() {
+        AddUndoIfNecessary();
+        current->text.image = nullptr;
+    }
+
     void SetStatusMessage(std::string_view message) {
         auto ws = wxString(message.data(), message.size());
         sys->frame->SetStatus(ws);

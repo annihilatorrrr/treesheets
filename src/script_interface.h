@@ -42,6 +42,7 @@ struct ScriptInterface {
     virtual int64_t GetLastEdit() = 0;
     virtual bool IsTag() = 0;
     virtual bool HasImage() = 0;
+    virtual void RemoveImage() = 0;
     virtual ~ScriptInterface() {};
 };
 

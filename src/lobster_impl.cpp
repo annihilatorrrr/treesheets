@@ -224,6 +224,12 @@ nfr("set_column_width", "width", "I", "", "set the column width of the current c
         si->SetColWidth(w.intval());
         return NilVal();
     });
+
+nfr("remove_image", "", "", "", "remove image in the current cell",
+    [](StackPtr &, VM &) {
+        si->RemoveImage();
+        return NilVal();
+    });
 }
 
 NativeRegistry natreg;  // FIXME: global.
