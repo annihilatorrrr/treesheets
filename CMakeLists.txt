@@ -47,7 +47,7 @@ FetchContent_Declare(
     GIT_REPOSITORY https://github.com/wxWidgets/wxWidgets
     GIT_TAG v3.2.10
     GIT_SHALLOW ON
-    FIND_PACKAGE_ARGS 3.2.9 NAMES wxWidgets
+    FIND_PACKAGE_ARGS 3.2.10 NAMES wxWidgets
 )
 FetchContent_MakeAvailable(wxwidgets)
 
