@@ -1400,11 +1400,13 @@ struct Document {
                 if (!selected.TextEdit() && action == A_SCLEFT) {
                     selected.xs = selected.Thin() ? selected.x : selected.x + 1;
                     selected.x = 0;
+                    sys->frame->UpdateStatus(selected, true);
                     canvas->Refresh();
                     return nullptr;
                 }
                 if (!selected.TextEdit() && action == A_SCRIGHT) {
                     selected.xs = selected.grid->xs - selected.x;
+                    sys->frame->UpdateStatus(selected, true);
                     canvas->Refresh();
                     return nullptr;
                 }
@@ -1416,10 +1418,12 @@ struct Document {
                 if (!selected.TextEdit() && action == A_SCUP) {
                     selected.ys = selected.Thin() ? selected.y : selected.y + 1;
                     selected.y = 0;
+                    sys->frame->UpdateStatus(selected, true);
                     canvas->Refresh();
                 }
                 if (!selected.TextEdit() && action == A_SCDOWN) {
                     selected.ys = selected.grid->ys - selected.y;
+                    sys->frame->UpdateStatus(selected, true);
                     canvas->Refresh();
                 }
                 return nullptr;
